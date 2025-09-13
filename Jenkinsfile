@@ -4,23 +4,12 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                sh 'mvn clean compile'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Package') {
-            steps {
-                sh 'mvn package'
+                sh 'javac Test.java'
             }
         }
         stage('Run') {
             steps {
-                echo 'Running the application...'
-                
+                sh 'java Test'
             }
         }
     }
